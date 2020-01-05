@@ -4,11 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
+import javax.xml.ws.Response;
 import java.util.Objects;
 
 @Controller
 public class LoginController {
-
+//
 //    @CrossOrigin
 //    @PostMapping(value = "api/login")
 //    @ResponseBody
@@ -25,5 +26,8 @@ public class LoginController {
 //            return new Result(200);
 //        }
 //    }
+    public  login(){
+
+    }
 }
 
