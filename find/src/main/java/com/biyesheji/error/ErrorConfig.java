@@ -1,4 +1,4 @@
-package com.biyesheji.find.error;
+package com.biyesheji.error;
 
 import org.springframework.boot.web.server.ErrorPageRegistrar;
 import org.springframework.boot.web.server.ErrorPage;

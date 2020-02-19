@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biyesheji.dao.RegisterMapper">
+    <!--验证手机号码是否存在-->
+    <select id="mobile" parameterType="com.biyesheji.qo.MobileQo" resultType="com.biyesheji.dto.MobileDto">
+        select count(1) as status,
+        null as msg
+        from user
+        where sjhm = #{mobile}
+    </select>
+
+    <!--验证用户是否存在-->
+    <select id="username" parameterType="com.biyesheji.qo.UsernameQo" resultType="com.biyesheji.dto.UsernameDto">
+        select count(1) as status,
+        null as msg
+        from user
+        where username = #{username}
+    </select>
+
+    <!--注册-->
+    <insert id="register" parameterType="com.biyesheji.qo.RegisterQo" >
+		insert into user (
+			username,
+			sjhm,
+			password,
+			flag
+		)values (
+			#{username},
+			#{mobile},
+			#{password},
+			'1'
+		)
+	</insert>
+
+</mapper>
