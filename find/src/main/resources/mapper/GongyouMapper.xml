@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biyesheji.dao.GongyouMapper">
+    <!--选择框下拉的捡到（丢失）地点-->
+    <select id="listdd" resultType="com.biyesheji.dto.DdDto">
+        select id,
+        dd
+        from dd
+    </select>
+
+    <!--选择框下拉的物品类型-->
+    <select id="listwpsslx" resultType="com.biyesheji.dto.SslxDto">
+        select id,
+        sslx
+        from wpsslx
+    </select>
+</mapper>

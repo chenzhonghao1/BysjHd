@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biyesheji.dao.ShiwuMapper">
+    <!--//查询出物品名称，相关描述，丢失时间（时间按最近到最久排序）-->
+    <select id="listswms"  resultType="com.biyesheji.dto.SwmsDto">
+        select wpmc,xgms,dssj
+        from shiwu
+        order by dssj desc
+        limit 12
+    </select>
+
+    <!--//添加失物信息-->
+    <insert id="addsw" parameterType="com.biyesheji.qo.SwQo" >
+        insert into shiwu(
+        wpmc
+        ,dssj
+        ,dsdd
+        ,sslx
+        ,xgms
+        <if test="tpdz!=null and tpdz!=''">
+            ,tpdz
+        </if>
+        )
+        values(
+        #{wpmc}
+        ,#{dssj}
+        ,#{dsdd}
+        ,#{sslx}
+        ,#{xgms}
+        <if test="tpdz!=null and tpdz!=''">
+            ,#{tpdz}
+        </if>
+        )
+    </insert>
+
+</mapper>

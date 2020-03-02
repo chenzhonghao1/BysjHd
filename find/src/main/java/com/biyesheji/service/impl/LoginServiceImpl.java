@@ -14,7 +14,8 @@ public class LoginServiceImpl implements LoginService {
     private LoginMapper loginMapper;
     @Override
     public UserDto login(UserQo userQo) {
-        UserDto userDto = loginMapper.login(userQo);
+        UserDto userDto = new UserDto();
+        userDto = loginMapper.login(userQo);
         return userDto;
     }
 }

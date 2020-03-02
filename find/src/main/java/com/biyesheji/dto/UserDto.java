@@ -6,8 +6,11 @@ import lombok.Data;
 public class UserDto {
     private int code;
     private String flag;
-    public UserDto(int code,String flag) {
+    private String token;
+    public UserDto(int code,String flag,String token) {
         this.code = code;
         this.flag = flag;
+        this.token = token;
     }
+    public UserDto(){};
 }

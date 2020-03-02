@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.biyesheji.dao.ZhaolingMapper">
+    <!--//查询出物品名称，相关描述，捡到时间（时间按最近到最久排序）-->
+    <select id="listms"  resultType="com.biyesheji.dto.MsDto">
+        select wpmc,xgms,jdsj
+        from zhaoling
+        order by jdsj desc
+        limit 12
+    </select>
+
+</mapper>

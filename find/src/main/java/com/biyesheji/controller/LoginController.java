@@ -1,5 +1,6 @@
 package com.biyesheji.controller;
 
+import com.biyesheji.Util.TokenUtil;
 import com.biyesheji.dto.UserDto;
 import com.biyesheji.qo.UserQo;
 import com.biyesheji.service.LoginService;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -24,14 +26,13 @@ public class LoginController {
     @CrossOrigin
     public UserDto login(@RequestBody UserQo userQo){
 // 对 html 标签进行转义，防止 XSS 攻击
-        String sjhm = userQo.getSjhm();
-        sjhm = HtmlUtils.htmlEscape(sjhm);
         UserDto userDto = loginService.login(userQo);
+        String token= TokenUtil.sign(userQo);
         if (userDto.getCode()==1) {
-            return new UserDto(200,userDto.getFlag());
+            return new UserDto(200,userDto.getFlag(),token);
         } else {
             String message = "账号密码错误";
-            return new UserDto(400,userDto.getFlag());
+            return new UserDto(400,userDto.getFlag(),token);
         }
     }
 }
