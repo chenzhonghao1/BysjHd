@@ -9,4 +9,34 @@
         limit 12
     </select>
 
+    <!--//添加失物信息-->
+    <insert id="addzl" parameterType="com.biyesheji.qo.ZlQo" >
+        insert into zhaoling(
+        wpmc
+        ,jdsj
+        ,jddd
+        ,sslx
+        ,xgms
+        <if test="zcdd!=null and zcdd!=''">
+            ,zcdd
+        </if>
+        <if test="tpdz!=null and tpdz!=''">
+            ,tpdz
+        </if>
+        )
+        values(
+        #{wpmc}
+        ,#{jdsj}
+        ,#{jddd}
+        ,#{sslx}
+        ,#{xgms}
+        <if test="zcdd!=null and zcdd!=''">
+            ,#{zcdd}
+        </if>
+        <if test="tpdz!=null and tpdz!=''">
+            ,#{tpdz}
+        </if>
+        )
+    </insert>
+
 </mapper>
